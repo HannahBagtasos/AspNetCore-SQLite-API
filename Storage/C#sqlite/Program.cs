@@ -17,24 +17,27 @@ namespace Csharpsqlite
 
             string createQuery = @"CREATE TABLE IF NOT EXISTS
                                   [storage] (
+                                  [Id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                                   [Timestamp] DATETIME DEFAULT CURRENT_TIMESTAMP,
                                   [Level] NVARCHAR(2048) NULL,
-                                  [Service] NVARCHAR(2048) NULL,
+                                  [Service] NVARCHAR(2048) NULL
                                   ";
             //database file
+            Console.WriteLine("Test 1");
             System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");
             using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("data source=storage.db"))
             {
                 using (System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(conn))
                 {
                     conn.Open();
+                    Console.WriteLine("Test 2");
                     cmd.CommandText = createQuery;
+                    Console.WriteLine("Test 3");
                     cmd.ExecuteNonQuery();
-
-                    //just test inputs
-                    cmd.CommandText = "INSERT INTO storage (Level,Service) values ('e' , 'Inferences.UnusualEvents_Main')";
+                    Console.WriteLine("Test 4"); //does not reach here
+                    cmd.CommandText = "INSERT INTO storage(Level,Service) values('e' , 'Inferences.UnusualEvents_Main')";
                     cmd.ExecuteNonQuery();
-                    cmd.CommandText = "INSERT INTO storage (Level,Service) values ('a' , 'Inferences.UnusualEvents_Main')";
+                    cmd.CommandText = "INSERT INTO storage(Level,Service) values('a' , 'Inferences.UnusualEvents_Main')";
                     cmd.ExecuteNonQuery();
 
 
