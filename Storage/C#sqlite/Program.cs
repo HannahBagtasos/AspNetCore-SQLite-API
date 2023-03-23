@@ -14,6 +14,8 @@ namespace Csharpsqlite
         static void Main(string[] args)
         {
             // Console.WriteLine("Hello, World!");
+            //test
+            string a = "";
 
             string createQuery = @"CREATE TABLE IF NOT EXISTS
                                   [storage] (
