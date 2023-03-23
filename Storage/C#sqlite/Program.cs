@@ -12,11 +12,7 @@ namespace Csharpsqlite
 
     {
         static void Main(string[] args)
-        {
-            // Console.WriteLine("Hello, World!");
-            //test
-            string a = "";
-
+        {   
             string createQuery = @"CREATE TABLE IF NOT EXISTS
                                   [storage] (
                                   [Id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -24,19 +20,25 @@ namespace Csharpsqlite
                                   [Level] NVARCHAR(2048) NULL,
                                   [Service] NVARCHAR(2048) NULL
                                   )";
+
+            //Console.WriteLine("Test 1");
+
+            // parse KQL to SQL
+            //var query = "T | project a = a + b | where a > 10.0";
+            //var code = KustoCode.Parse(query);
+
             //database file
-            Console.WriteLine("Test 1");
             System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");
             using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("data source=storage.db"))
             {
                 using (System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(conn))
                 {
                     conn.Open();
-                    Console.WriteLine("Test 2");
+                    //Console.WriteLine("Test 2");
                     cmd.CommandText = createQuery;
-                    Console.WriteLine("Test 3");
+                    //Console.WriteLine("Test 3");
                     cmd.ExecuteNonQuery();
-                    Console.WriteLine("Test 4"); //does not reach here
+                   // Console.WriteLine("Test 4"); 
                     cmd.CommandText = "INSERT INTO storage(Level,Service) values('e' , 'Inferences.UnusualEvents_Main')";
                     cmd.ExecuteNonQuery();
                     cmd.CommandText = "INSERT INTO storage(Level,Service) values('a' , 'Inferences.UnusualEvents_Main')";
@@ -59,29 +61,6 @@ namespace Csharpsqlite
             }
             Console.ReadLine();
 
-            //using (var connection = new SqliteConnection("Data Source=storage.db"))
-            //{
-               // connection.Open();
-
-              //  var command = connection.CreateCommand();
-               // command.CommandText =
-                //@"
-               //      SELECT name
-                //     FROM user
-                //     WHERE id = $id
-                //";
-                //command.Parameters.AddWithValue("$id", id);
-
-               // using (var reader = command.ExecuteReader())
-               // {
-                   // while (reader.Read())
-                    //{
-                      //  var name = reader.GetString(0);
-
-                      //  Console.WriteLine($"Hello, {name}!");
-                    //}
-               // }
-           // }
         }
     }
 
