@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Storage",
-    "\\Storage\\C#sqlite"
+    "\\Storage\\C#sqlite\\bin",
+    "\\Storage\\C#sqlite\\obj"
   ],
-  "SelectedNode": "\\Storage\\C#sqlite\\Program.cs",
+  "SelectedNode": "\\Storage",
   "PreviewInSolutionExplorer": false
 }

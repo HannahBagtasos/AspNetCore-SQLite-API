@@ -23,7 +23,7 @@ namespace Csharpsqlite
                                   [Timestamp] DATETIME DEFAULT CURRENT_TIMESTAMP,
                                   [Level] NVARCHAR(2048) NULL,
                                   [Service] NVARCHAR(2048) NULL
-                                  ";
+                                  )";
             //database file
             Console.WriteLine("Test 1");
             System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");

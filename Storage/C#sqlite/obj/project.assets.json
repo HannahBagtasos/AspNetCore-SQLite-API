@@ -1220,11 +1220,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\C#sqlite\\Csharpsqlite.csproj",
+      "projectUniqueName": "C:\\Users\\hanna\\source\\repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
       "projectName": "Csharpsqlite",
-      "projectPath": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\C#sqlite\\Csharpsqlite.csproj",
+      "projectPath": "C:\\Users\\hanna\\source\\repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
       "packagesPath": "C:\\Users\\hanna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\C#sqlite\\obj\\",
+      "outputPath": "C:\\Users\\hanna\\source\\repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hanna\\AppData\\Roaming\\NuGet\\NuGet.Config",
