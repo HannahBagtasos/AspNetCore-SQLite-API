@@ -32,6 +32,19 @@
           "buildTransitive/netcoreapp3.0/EntityFramework.targets": {}
         }
       },
+      "Microsoft.Azure.Kusto.Language/11.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Kusto.Language.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Kusto.Language.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
@@ -448,6 +461,29 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+    "Microsoft.Azure.Kusto.Language/11.2.2": {
+      "sha512": "owNcSpoM81v9WhW+P4fqakaBNA/kiaF3mDdVBJTyEyx4JItpQOhRkR1cHcZNb6rGJE8vu6+CrafQeIJRttmjAw==",
+      "type": "package",
+      "path": "microsoft.azure.kusto.language/11.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "EULA-agreement.txt",
+        "MSFT.png",
+        "lib/net472/Kusto.Language.dll",
+        "lib/net472/Kusto.Language.xml",
+        "lib/net5.0/Kusto.Language.dll",
+        "lib/net5.0/Kusto.Language.xml",
+        "lib/net6.0/Kusto.Language.dll",
+        "lib/net6.0/Kusto.Language.xml",
+        "lib/netcoreapp2.1/Kusto.Language.dll",
+        "lib/netcoreapp2.1/Kusto.Language.xml",
+        "lib/netstandard2.0/Kusto.Language.dll",
+        "lib/netstandard2.0/Kusto.Language.xml",
+        "microsoft.azure.kusto.language.11.2.2.nupkg.sha512",
+        "microsoft.azure.kusto.language.nuspec"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -1211,6 +1247,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Microsoft.Azure.Kusto.Language >= 11.2.2",
       "System.Data.SQLite >= 1.0.117"
     ]
   },
@@ -1220,11 +1257,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hanna\\source\\repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
+      "projectUniqueName": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
       "projectName": "Csharpsqlite",
-      "projectPath": "C:\\Users\\hanna\\source\\repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
+      "projectPath": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
       "packagesPath": "C:\\Users\\hanna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hanna\\source\\repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\obj\\",
+      "outputPath": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hanna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1253,6 +1290,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.Azure.Kusto.Language": {
+            "target": "Package",
+            "version": "[11.2.2, )"
+          },
           "System.Data.SQLite": {
             "target": "Package",
             "version": "[1.0.117, )"

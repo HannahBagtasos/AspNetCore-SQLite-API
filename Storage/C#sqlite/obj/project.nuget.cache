@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "QjSfNReaREFzWi79DdGxhCL3lnjuQ2R6AzE5aPcK3fFFdCc5hPQN13dGX/VBKRfDqjWPvryHJg8Uqri/209pNw==",
+  "dgSpecHash": "NOBF6pCsx7/5/LqUShrsumrHu9NmHY+EnjG4F6BqxwOjkBpzr5JROBD5osTZqF8MZERGKswEESNz/DW09WREKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hanna\\source\\repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
+  "projectFilePath": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hanna\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\hanna\\.nuget\\packages\\microsoft.azure.kusto.language\\11.2.2\\microsoft.azure.kusto.language.11.2.2.nupkg.sha512",
     "C:\\Users\\hanna\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\hanna\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\hanna\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

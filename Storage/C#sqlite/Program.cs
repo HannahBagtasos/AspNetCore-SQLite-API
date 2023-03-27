@@ -13,6 +13,7 @@ namespace Csharpsqlite
     {
         static void Main(string[] args)
         {   
+
             string createQuery = @"CREATE TABLE IF NOT EXISTS
                                   [storage] (
                                   [Id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
