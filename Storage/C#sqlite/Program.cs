@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using Kusto.Language;
+using Kusto.Language.Symbols;
+using Kusto.Language.Syntax;
 
 
 namespace Csharpsqlite
@@ -12,7 +15,11 @@ namespace Csharpsqlite
 
     {
         static void Main(string[] args)
-        {   
+        {
+
+            string KQLquery = "T | project a = a + b | where a > 10.0";
+            KustoCode code = KustoCode.Parse(KQLquery);
+            Console.WriteLine(code.Syntax.ToString());
 
             string createQuery = @"CREATE TABLE IF NOT EXISTS
                                   [storage] (
@@ -22,11 +29,7 @@ namespace Csharpsqlite
                                   [Service] NVARCHAR(2048) NULL
                                   )";
 
-            //Console.WriteLine("Test 1");
 
-            // parse KQL to SQL
-            //var query = "T | project a = a + b | where a > 10.0";
-            //var code = KustoCode.Parse(query);
 
             //database file
             System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");
@@ -39,7 +42,7 @@ namespace Csharpsqlite
                     cmd.CommandText = createQuery;
                     //Console.WriteLine("Test 3");
                     cmd.ExecuteNonQuery();
-                   // Console.WriteLine("Test 4"); 
+                    // Console.WriteLine("Test 4"); 
                     cmd.CommandText = "INSERT INTO storage(Level,Service) values('e' , 'Inferences.UnusualEvents_Main')";
                     cmd.ExecuteNonQuery();
                     cmd.CommandText = "INSERT INTO storage(Level,Service) values('a' , 'Inferences.UnusualEvents_Main')";
@@ -63,6 +66,8 @@ namespace Csharpsqlite
             Console.ReadLine();
 
         }
+
+
     }
 
 }

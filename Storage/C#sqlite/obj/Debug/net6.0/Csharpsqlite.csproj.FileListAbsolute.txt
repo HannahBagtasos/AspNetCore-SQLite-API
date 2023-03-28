@@ -82,3 +82,16 @@ C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#
 C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\obj\Debug\net6.0\Csharpsqlite.pdb
 C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\obj\Debug\net6.0\Csharpsqlite.genruntimeconfig.cache
 C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\obj\Debug\net6.0\ref\Csharpsqlite.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Kusto.Language.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\hanna\Source\Repos\Distributed-Storage-Project\Storage-Layer\Storage\C#sqlite\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
