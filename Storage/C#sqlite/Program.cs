@@ -7,8 +7,6 @@ using System.Data.SQLite;
 using Kusto.Language;
 using Kusto.Language.Symbols;
 using Kusto.Language.Syntax;
-
-
 namespace Csharpsqlite
 {
     class Program
@@ -16,10 +14,6 @@ namespace Csharpsqlite
     {
         static void Main(string[] args)
         {
-
-            string KQLquery = "T | project a = a + b | where a > 10.0";
-            KustoCode code = KustoCode.Parse(KQLquery);
-            Console.WriteLine(code.Syntax.ToString());
 
             string createQuery = @"CREATE TABLE IF NOT EXISTS
                                   [storage] (
@@ -64,6 +58,38 @@ namespace Csharpsqlite
                 }
             }
             Console.ReadLine();
+
+
+            string KQLquery = "T | project a = a + b | where a > 10.0";
+            KustoCode code = KustoCode.Parse(KQLquery);
+            Console.WriteLine(code.Syntax.ToString());
+            Console.WriteLine("Test 2");
+
+
+            // convert Kusto code to C# code
+            // string cSharpCode = code.ToCSharp();
+
+            // build SQL query from C# code
+            //string sqlQuery = $"SELECT * FROM MyTable WHERE {cSharpCode}";
+
+            // execute SQL query using ADO.NET
+            //string connectionString = "Data Source=MyServer;Initial Catalog=MyDatabase;Integrated Security=True;";
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //  connection.Open();
+
+            //using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+            //{
+            // SqlDataAdapter adapter = new SqlDataAdapter(command);
+            // DataTable table = new DataTable();
+            //adapter.Fill(table);
+
+            // foreach (DataRow row in table.Rows)
+            //{
+            //    Console.WriteLine(row["MyColumn"]);
+            //}
+            // }
+            //}
 
         }
 
