@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.Azure.Kusto.Language" Version="11.2.2" />
     <PackageReference Include="Microsoft.Azure.Kusto.Tools.NETCore" Version="5.4.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.4" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
   </ItemGroup>
 
