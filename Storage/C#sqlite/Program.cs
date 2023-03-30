@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Text.RegularExpressions;
 using Kusto.Language;
 using Kusto.Language.Symbols;
 using Kusto.Language.Syntax;
 using NUnit.Framework;
 using System.Reflection.Emit;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 
 namespace Csharpsqlite
@@ -23,7 +25,7 @@ namespace Csharpsqlite
             List<string> queries = new List<string>()
 
                 {
-               
+
                  "Logs | where Timestamp >= datetime(2015-08-22 05:00) | where Level == \"e\" | limit 10",
                  "Logs | where Timestamp >= datetime(2015-08-22 07:00) | where Level == \"e\" | limit 11",
                  "Logs | where Timestamp >= datetime(2015-09-22 05:00) | where Level == \"e\" | limit 12",
@@ -39,36 +41,32 @@ namespace Csharpsqlite
 
             //All occurrences of the name "a" in the C# code represented are found 
             //and returned as a collection of NameReference nodes in the referencesToA variable.
+            string timestamp_pattern = @"Timestamp\s+>=\s+datetime\((\d+-\d+-\d+\s+\d+:\d+)\)";
+            string level_pattern = @"Level\s+==\s+""(\w+)""";
+            string limit_pattern = @"limit\s+(\d+)";
 
-            foreach (string query in queries)
+            foreach (string kql_query in queries)
             {
-                KustoCode code = KustoCode.Parse(query);
-                //var references = code.Syntax.GetDescendants<NameReference>(n => n.SimpleName == "a");
-                var references = code.Syntax.GetDescendants<NameReference>(n => n.SimpleName == "Level" || n.SimpleName == "Timestamp" || n.SimpleName == "Logs" || n.SimpleName == "Service");
-                foreach (var reference in references)
-                {
-                    if (reference.SimpleName == "timestamp" || reference.SimpleName == "logs" || reference.SimpleName == "service")
-                    {
-                        Console.WriteLine("Taking the QL in query '{0}': {1}", query, reference.SimpleName);
-                    }
-                }
-                //Console.WriteLine("Taking the QL in query '{0}': {1}", query, references.Count());
-                //Console.WriteLine(code.ToString()); 
-                //SELECT Level, Timestamp, Message
-                //FROM Logs
-                //WHERE Timestamp >= '2015-08-22 05:00' AND Timestamp< '2015-08-22 06:00'
-                // Level = 'e' AND Service = 'Inferences.UnusualEvents_Main'
-                //LIMIT 10;
-                // level, timestamo, logs, service
-              
 
+                Match timestamp_match = Regex.Match(kql_query, timestamp_pattern);
+                Match level_match = Regex.Match(kql_query, level_pattern);
+                Match limit_match = Regex.Match(kql_query, limit_pattern);
+
+
+                string sql_query = string.Format("SELECT * FROM Logs WHERE Timestamp >= '{0}' AND Level = '{1}' LIMIT {2};",
+                                                 timestamp_match.Groups[1].Value,
+                                                 level_match.Groups[1].Value,
+                                                 limit_match.Groups[1].Value);
+
+                Console.WriteLine(sql_query);
 
             }
 
+            Console.WriteLine("Hello");
 
 
 
-            string createQuery = @"CREATE TABLE IF NOT EXISTS
+         string createQuery = @"CREATE TABLE IF NOT EXISTS
                                   [storage] (
                                   [Id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                                   [Timestamp] DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -77,8 +75,8 @@ namespace Csharpsqlite
                                   )";
 
 
-            //database file
-            System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");
+        //database file
+        System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");
             using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("data source=storage.db"))
             {
                 using (System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(conn))
@@ -100,7 +98,7 @@ namespace Csharpsqlite
                         {
                             Console.WriteLine(reader["Level"] + ":" + reader["Service"]);
                         }
-                        conn.Close();
+                         conn.Close();
 
                     }
 
