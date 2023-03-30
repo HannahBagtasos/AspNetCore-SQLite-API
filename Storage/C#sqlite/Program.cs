@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using Kusto.Language;
 using Kusto.Language.Symbols;
 using Kusto.Language.Syntax;
+using NUnit.Framework;
 
 
 namespace Csharpsqlite
@@ -40,10 +41,29 @@ namespace Csharpsqlite
             foreach (string query in queries)
             {
                 KustoCode code = KustoCode.Parse(query);
-                var referencesToA = code.Syntax.GetDescendants<NameReference>(n => n.SimpleName == "a");
-                Console.WriteLine("References to 'a' in query '{0}': {1}", query, referencesToA.Count());
-                //Console.WriteLine(code.ToString()); // or code.Syntax.ToString() for just the syntax tree
+                //var references = code.Syntax.GetDescendants<NameReference>(n => n.SimpleName == "a");
+                var references = code.Syntax.GetDescendants<NameReference>(n => n.SimpleName == "Level" || n.SimpleName == "Timestamp" || n.SimpleName == "Logs" || n.SimpleName == "Service");
+                foreach (var reference in references)
+                {
+                    if (reference.SimpleName == "timestamp" || reference.SimpleName == "logs" || reference.SimpleName == "service")
+                    {
+                        Console.WriteLine("Taking the QL in query '{0}': {1}", query, reference.SimpleName);
+                    }
+                }
+                //Console.WriteLine("Taking the QL in query '{0}': {1}", query, references.Count());
+                //Console.WriteLine(code.ToString()); 
+                //SELECT Level, Timestamp, Message
+                //FROM Logs
+                //WHERE Timestamp >= '2015-08-22 05:00' AND Timestamp< '2015-08-22 06:00'
+                // Level = 'e' AND Service = 'Inferences.UnusualEvents_Main'
+                //LIMIT 10;
+                // level, timestamo, logs, service
+              
+
+
             }
+
+
 
 
             string createQuery = @"CREATE TABLE IF NOT EXISTS
