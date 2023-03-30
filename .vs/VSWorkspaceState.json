@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\StorageLayer",
+    "\\StorageLayer\\storageApplication",
     "\\Storage\\C#sqlite"
   ],
+  "SelectedNode": "\\StorageLayer\\storageApplication\\storageApplication.sln",
   "PreviewInSolutionExplorer": false
 }
