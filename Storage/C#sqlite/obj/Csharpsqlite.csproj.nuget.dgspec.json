@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj": {}
+    "C:\\Users\\jayso\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj": {
+    "C:\\Users\\jayso\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
+        "projectUniqueName": "C:\\Users\\jayso\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
         "projectName": "Csharpsqlite",
-        "projectPath": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
-        "packagesPath": "C:\\Users\\hanna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hanna\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\obj\\",
+        "projectPath": "C:\\Users\\jayso\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\Csharpsqlite.csproj",
+        "packagesPath": "C:\\Users\\jayso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jayso\\Source\\Repos\\Distributed-Storage-Project\\Storage-Layer\\Storage\\C#sqlite\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\hanna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jayso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
