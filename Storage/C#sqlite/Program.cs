@@ -21,7 +21,7 @@ namespace Csharpsqlite
         static void Main(string[] args)
         {
             
-
+            //test for merging
             List<string> queries = new List<string>()
 
                 {
