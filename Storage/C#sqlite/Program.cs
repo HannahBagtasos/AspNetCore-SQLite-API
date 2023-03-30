@@ -8,6 +8,7 @@ using Kusto.Language;
 using Kusto.Language.Symbols;
 using Kusto.Language.Syntax;
 using NUnit.Framework;
+using System.Reflection.Emit;
 
 
 namespace Csharpsqlite
@@ -22,16 +23,17 @@ namespace Csharpsqlite
             List<string> queries = new List<string>()
 
                 {
-                 "Logs | where Timestamp >= datetime(2015-08-22 05:00) and Timestamp < datetime(2015-08-22 06:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 10",
-                 "Logs | where Timestamp >= datetime(2015-08-22 07:00) and Timestamp < datetime(2015-08-22 08:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 11",
-                 "Logs | where Timestamp >= datetime(2015-09-22 05:00) and Timestamp < datetime(2015-09-22 06:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 12",
-                 "Logs | where Timestamp >= datetime(2015-10-22 05:00) and Timestamp < datetime(2015-10-22 06:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 13",
-                 "Logs | where Timestamp >= datetime(2015-10-22 08:00) and Timestamp < datetime(2015-10-22 09:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 14",
-                 "Logs | where Timestamp >= datetime(2015-11-22 05:00) and Timestamp < datetime(2015-11-22 06:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 15",
-                 "Logs | where Timestamp >= datetime(2015-12-22 05:00) and Timestamp < datetime(2015-12-22 06:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 16",
-                 "Logs | where Timestamp >= datetime(2016-09-22 05:00) and Timestamp < datetime(2016-09-22 06:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 17",
-                 "Logs | where Timestamp >= datetime(2016-09-22 05:00) and Timestamp < datetime(2016-10-22 06:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 18",
-                 "Logs | where Timestamp >= datetime(2016-10-22 05:00) and Timestamp < datetime(2016-10-22 06:00) | where Level == \"e\" and Service == \"Inferences.UnusualEvents_Main\" | project Level, Timestamp, Message | limit 19",
+               
+                 "Logs | where Timestamp >= datetime(2015-08-22 05:00) | where Level == \"e\" | limit 10",
+                 "Logs | where Timestamp >= datetime(2015-08-22 07:00) | where Level == \"e\" | limit 11",
+                 "Logs | where Timestamp >= datetime(2015-09-22 05:00) | where Level == \"e\" | limit 12",
+                 "Logs | where Timestamp >= datetime(2015-10-22 05:00) | where Level == \"e\" | limit 13",
+                 "Logs | where Timestamp >= datetime(2015-10-22 08:00) | where Level == \"e\" | limit 14",
+                 "Logs | where Timestamp >= datetime(2015-11-22 05:00) | where Level == \"e\" | limit 15",
+                 "Logs | where Timestamp >= datetime(2015-12-22 05:00) | where Level == \"e\" | limit 16",
+                 "Logs | where Timestamp >= datetime(2016-09-22 05:00) | where Level == \"e\" | limit 17",
+                 "Logs | where Timestamp >= datetime(2016-09-22 05:00) | where Level == \"e\" | limit 18",
+                 "Logs | where Timestamp >= datetime(2016-10-22 05:00) | where Level == \"e\" | limit 19",
                 };
 
 
