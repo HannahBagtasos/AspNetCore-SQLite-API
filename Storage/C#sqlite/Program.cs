@@ -41,32 +41,32 @@ namespace Csharpsqlite
 
             //All occurrences of the name "a" in the C# code represented are found 
             //and returned as a collection of NameReference nodes in the referencesToA variable.
-            string timestamp_pattern = @"Timestamp\s+>=\s+datetime\((\d+-\d+-\d+\s+\d+:\d+)\)";
-            string level_pattern = @"Level\s+==\s+""(\w+)""";
-            string limit_pattern = @"limit\s+(\d+)";
+            string tableReg = @"(?<table>Logs)\s";
+            string timestampReg = @"Timestamp\s+>=\s+datetime\((\d+-\d+-\d+\s+\d+:\d+)\)";
+            string levelReg = @"Level\s+==\s+""(\w+)""";
+            string limitReg = @"limit\s+(\d+)";
+            
 
             foreach (string kql_query in queries)
             {
 
-                Match timestamp_match = Regex.Match(kql_query, timestamp_pattern);
-                Match level_match = Regex.Match(kql_query, level_pattern);
-                Match limit_match = Regex.Match(kql_query, limit_pattern);
+                Match table = Regex.Match(kql_query, tableReg);
+                Match timestamp = Regex.Match(kql_query, timestampReg);
+                Match level= Regex.Match(kql_query, levelReg);
+                Match limit = Regex.Match(kql_query, limitReg);
 
 
-                string sql_query = string.Format("SELECT * FROM Logs WHERE Timestamp >= '{0}' AND Level = '{1}' LIMIT {2};",
-                                                 timestamp_match.Groups[1].Value,
-                                                 level_match.Groups[1].Value,
-                                                 limit_match.Groups[1].Value);
+                string sqlQuery = string.Format("SELECT * FROM '{0}' WHERE Timestamp >= '{1}' AND Level = '{2}' LIMIT {3};",
+                                                 table.Groups[1].Value,
+                                                 timestamp.Groups[1].Value,
+                                                 level.Groups[1].Value,
+                                                 limit.Groups[1].Value);
 
-                Console.WriteLine(sql_query);
+                Console.WriteLine(sqlQuery);
 
             }
 
-            Console.WriteLine("Hello");
-
-
-
-         string createQuery = @"CREATE TABLE IF NOT EXISTS
+            string createQuery = @"CREATE TABLE IF NOT EXISTS
                                   [storage] (
                                   [Id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                                   [Timestamp] DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -75,8 +75,8 @@ namespace Csharpsqlite
                                   )";
 
 
-        //database file
-        System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");
+            //database file
+            System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");
             using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("data source=storage.db"))
             {
                 using (System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(conn))
@@ -98,7 +98,7 @@ namespace Csharpsqlite
                         {
                             Console.WriteLine(reader["Level"] + ":" + reader["Service"]);
                         }
-                         conn.Close();
+                        conn.Close();
 
                     }
 
