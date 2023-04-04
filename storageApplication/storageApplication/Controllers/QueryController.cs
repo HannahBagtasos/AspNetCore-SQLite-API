@@ -14,18 +14,41 @@ namespace storageApplication.Controllers
     public class QueryController : ControllerBase
     {
         [HttpPost("query")]
-        public ActionResult query()
+        public ActionResult query([FromBody] JObject requestBody)
         {
-            var data = new List<List<string>>
+            System.Data.SQLite.SQLiteConnection.CreateFile("storage.db");
+            string sqlQuery = requestBody.GetValue("query").ToString();
+
+            using (System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection("data source=storage.db"))
             {
-            new List<string> { "value 1", "value 2" },
-            new List<string> { "value 3", "value 4" }
-            };
+                using (System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(conn))
+                {
+                    conn.Open();
+                    cmd.CommandText = sqlQuery;
 
-            var results = new { Data = data };
+                    using (System.Data.SQLite.SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        List<List<string>> results = new List<List<string>>();
+                        while (reader.Read())
+                        {
+                            List<string> row = new List<string>();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row.Add(reader[i].ToString());
+                            }
+                            results.Add(row);
+                        }
+                        conn.Close();
+                        return new OkObjectResult(new Result { Data = results });
+                    }
+                }
+            }
 
-            return Ok(results);
+
         }
-
+        public class Result
+        {
+            public List<List<string>> Data { get; set; }
+        }
     }
 }
