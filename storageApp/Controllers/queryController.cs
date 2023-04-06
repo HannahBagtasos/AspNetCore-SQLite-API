@@ -36,42 +36,33 @@ namespace storageApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> getFromSqlRaw(queryWriteDTO data)
+        public async Task<IActionResult> createQuery(logdata data)
         {
-
-            //fetch log data
-            try
+            //make sure our model is valid
+            if (ModelState.IsValid)
             {
-             
+                //saves to memory of server
+                await _context.Logs.AddAsync(data);
+                //save those items to the db
+                await _context.SaveChangesAsync();
 
-                if (ModelState.IsValid)
-                {
-                    //im missing types
-                    var result = _context.logData.FromSqlRaw(data.Name);
-                    await _context.SaveChangesAsync();
-                    var response = new queryResultReadListDTO
-                    {
-                        data = new queryResultReadDTO
-                        {
-                            value1 = result.Timestamp,
-                            value2 = result.Level
-                        }.ToList()
-                    };
-                    return Ok(response);
-                }
-                return BadRequest("Invalid");
-
-
+                return CreatedAtAction("GetData", new { data, id }, data);
             }
-            catch (System.Exception)
-            {
-                throw;
-            }
-            
+            return new JsonResult("Something went wrong.") { StatusCode = 500 };
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> getSingleData(int id)
+        {
 
+            //match by id
+            var data = await _context.Logs.FirstOrDefaultAsync(z => z.Id == id);
 
+            if (data == null)
+                return NotFound();
+
+            return Ok(data);
+        }
 
     }
 }
