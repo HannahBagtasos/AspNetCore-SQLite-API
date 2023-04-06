@@ -13,11 +13,11 @@ namespace storageApp.Controllers
     [ApiController] //sdk utilizes 
     public class queryController : ControllerBase
     {
-        //[HttpGet]
-        //public IActionResult Get()
-        //{
-        //            return Ok("Test run success");
-        // }
+        [HttpGet]
+        public IActionResult Get()
+        {
+                    return Ok("Test run success");
+        }
 
         private readonly myDbContext _context;
         //constructor
