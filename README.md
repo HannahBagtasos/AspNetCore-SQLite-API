@@ -1,4 +1,3 @@
-# Storage-Layer
 
 Learning C# and how to create a simple Asp.Net Core Rest API application using Sqlite as a database for storage.
 
