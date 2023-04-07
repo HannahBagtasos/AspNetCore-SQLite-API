@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using storageApp.Data;
-using storageApp.DTO;
 using Microsoft.EntityFrameworkCore;
+using storageApp.Models;
 
 namespace storageApp.Controllers
 {
@@ -36,7 +32,7 @@ namespace storageApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> createQuery(logdata data)
+        public async Task<IActionResult> createQuery(logData data)
         {
             //make sure our model is valid
             if (ModelState.IsValid)
@@ -46,7 +42,7 @@ namespace storageApp.Controllers
                 //save those items to the db
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction("GetData", new { data, id }, data);
+                return CreatedAtAction("GetData", new { data, Id }, data);
             }
             return new JsonResult("Something went wrong.") { StatusCode = 500 };
         }
